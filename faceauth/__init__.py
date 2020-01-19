@@ -22,6 +22,7 @@ face_auth = oauth.register(
     api_base_url=FACE_BASE_URL,
     access_token_url= 'https://graph.facebook.com/oauth/access_token',
     authorize_url=FACE_BASE_URL + '/v5.0/dialog/oauth',
+    client_kwargs={"scope": "email"}
 )
 
 

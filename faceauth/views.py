@@ -19,6 +19,11 @@ def login():
 def callback():
     token = face_auth.authorize_access_token()
     print(token)
+    facebook_id = face_auth.get("https://graph.facebook.com/v5.0/me?").json()["id"]
+    user_data = face_auth.get(f"https://graph.facebook.com/v5.0/{facebook_id}?fields=id,name,email").json()
+    facebook_email = user_data['email']
+    print(facebook_email)
+
     return redirect('/loggedin')
 
 
